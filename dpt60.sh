@@ -1,7 +1,6 @@
 #!/bin/bash
-
 jobTag=threads4
-hltMenu=/users/musich/tests/dev/CMSSW_14_0_0/CMSHLT-3116/HLT/V6
+hltMenu=/users/tsheng/HLT_JIRA_3116_Pref_14X/V2
 
 check_log () {
     grep '0 HLT_PPRefDmesonTrackingGlobal_Dpt60_v' $1 | grep TrigReport
