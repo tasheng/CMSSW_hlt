@@ -1,7 +1,7 @@
 #!/bin/bash
 
 jobTag=threads4
-hltMenu=/users/tsheng/HLT_HiSpectra_2024ppref_14X/V8
+hltMenu=/users/musich/tests/dev/CMSSW_14_0_0/CMSHLT-3116/HLT/V6
 
 check_log () {
 	
