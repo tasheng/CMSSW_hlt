@@ -45,7 +45,8 @@ process.hltOutputMinimal.outputCommands += [
 ]
 process.source = cms.Source( "PoolSource",
     fileNames = cms.untracked.vstring(
-        'file:/afs/cern.ch/user/t/tsheng/ppref140/zb2skim.root',
+
+'file:/afs/cern.ch/work/s/soohwan/public/ForTzuAn/step2_PU10.root',
     ),
     inputCommands = cms.untracked.vstring(
         'keep *'
@@ -68,18 +69,15 @@ EOF
 }
 
 hltGetCmd="hltGetConfiguration ${hltMenu}"
-# hltGetCmd+=" --globaltag auto:phase1_2023_realistic_hi --mc --unprescale --output minimal --max-events -1"
-hltGetCmd+=" --globaltag auto:phase1_2023_realistic_hi --data --unprescale --output minimal --max-events -1"
-#hltGetCmd+=" --input file:onlyFiring_HLT_PPRefDmesonTrackingGlobal_Dpt60_v3.root"
-# hltGetCmd+=" --input file:/eos/cms/store/group/phys_heavyions/soohwan/samples/JIRA3116/step2_DIGI_L1_DIGI2RAW_HLT_PU.root"
-hltGetCmd+=" --input file:/afs/cern.ch/user/t/tsheng/ppref140/zb2skim.root"
-# hltGetCmd+=" --input file:/eos/cms/store/group/phys_heavyions/tsheng/run24/Pythia8_DzeroToKPi_prompt_Pthat40_TuneCP5_5360GeV/MC_20240530_pthat40_DIGI_v1/240530_152336/0000/signal_RAW_full_1.root"
+hltGetCmd+=" --globaltag auto:run3_mc_PRef --mc --unprescale --output minimal --max-events -1"
+# hltGetCmd+=" --input file:/eos/cms/store/group/phys_heavyions/tsheng/run24/Pythia8_DzeroToKPi_prompt_Pthat40_TuneCP5_5360GeV/MC_20240530_pthat40_DIGI_v1/240530_152336/0000/signal_RAW_full_3.root"
+hltGetCmd+=" --input file:/afs/cern.ch/work/s/soohwan/public/ForTzuAn/step2_PU10.root"
 
 #echo $hltGetCmd
 
 configLabel=hlt_"${jobTag}"_onlyHICsAK4PFJet
 #echo "${configLabel}".py
-${hltGetCmd} --paths HLT_PPRefDmesonTrackingGlobal_Dpt35_v2 > "${configLabel}".py
+${hltGetCmd} --paths HLT_PPRefDmesonTrackingGlobal_Dpt25_v2 > "${configLabel}".py
 for job_i in {0..50}; do run "${configLabel}".py "${configLabel}"_"${job_i}"; done; unset job_i;
 wait
 
