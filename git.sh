@@ -26,8 +26,8 @@ process.hltOutputMinimal.outputCommands += [
 
 process.hltOutputMinimal.fileName = '${2}.root'
 
-process.hltAK4CaloJets.doAreaFastjet(false)
-process.hltAK4CaloJets.doAreaDiskApprox(true)
+process.hltAK4CaloJets.doAreaFastjet(False)
+process.hltAK4CaloJets.doAreaDiskApprox(True)
 
 EOF
 
